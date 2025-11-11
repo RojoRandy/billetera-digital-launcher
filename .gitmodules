@@ -4,3 +4,6 @@
 [submodule "billetera-digital-api"]
 	path = billetera-digital-api
 	url = https://github.com/RojoRandy/billetera-digital-api
+[submodule "billetera-digital-front"]
+	path = billetera-digital-front
+	url = https://github.com/RojoRandy/billetera-digital-front.git
