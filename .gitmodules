@@ -1,3 +1,6 @@
 [submodule "billetera-digital-ms"]
 	path = billetera-digital-ms
 	url = https://github.com/RojoRandy/billetera-digital-ms
+[submodule "billetera-digital-api"]
+	path = billetera-digital-api
+	url = https://github.com/RojoRandy/billetera-digital-api
