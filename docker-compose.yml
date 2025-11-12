@@ -26,6 +26,17 @@ services:
     networks:
       - mongodb_network
 
+  nats-server:
+    image: nats:alpine3.21
+    container_name: nats-server
+    restart: always
+    ports:
+      - "4222:4222"   # Puerto cliente
+      - "8222:8222"   # Puerto de monitoreo HTTP
+    volumes:
+      - ./nats.conf:/etc/nats/nats.conf
+    command: ["-c", "/etc/nats/nats.conf"]
+
 volumes:
   mongodb_data:
 
