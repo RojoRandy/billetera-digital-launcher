@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "4cc36608-d3e8-439a-9181-0549e2813d5c",
+		"name": "Billetera Digital - (Nest + Hexagonal + DDD)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12636556"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Registro Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"documento\": \"da91ed58-7810-4911-9889-1df00d480ebd\",\n    \"nombres\": \"Ran\",\n    \"email\": \"rojo.q.randy@gmail.com\",\n    \"celular\": \"1231231231\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/clientes",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Billetera",
+			"item": [
+				{
+					"name": "Consultar Saldo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/billeteras/consultar-saldo?documento=da91ed58-7810-4911-9889-1df00d480ebd&celular=1231231231",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"billeteras",
+								"consultar-saldo"
+							],
+							"query": [
+								{
+									"key": "documento",
+									"value": "da91ed58-7810-4911-9889-1df00d480ebd"
+								},
+								{
+									"key": "celular",
+									"value": "1231231231"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recargar Saldo",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"documento\": \"da91ed58-7810-4911-9889-1df00d480ebd\",\n    \"celular\": \"1231231231\",\n    \"cantidad\": 2500\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/billeteras/recargar-saldo",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"billeteras",
+								"recargar-saldo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consultar Saldo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/billeteras/consultar-saldo?documento=da91ed58-7810-4911-9889-1df00d480ebd&celular=1231231231",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"billeteras",
+						"consultar-saldo"
+					],
+					"query": [
+						{
+							"key": "documento",
+							"value": "da91ed58-7810-4911-9889-1df00d480ebd"
+						},
+						{
+							"key": "celular",
+							"value": "1231231231"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
