@@ -1,6 +1,48 @@
 version: "3.9"
 
 services:
+
+  billetera-digital-api:
+    container_name: billetera-digital-api
+    build: ./billetera-digital-api
+    ports:
+      - ${BILLETERA_DIGITAL_API_PORT}:3000
+    environment:
+      - PORT=${BILLETERA_DIGITAL_API_PORT}
+      - NATS_SERVERS=nats://nats-server:4222
+    networks:
+      - billetera_network
+    depends_on:
+      - nats-server
+
+  billetera-digital-ms:
+    container_name: billetera-digital-ms
+    build: ./billetera-digital-ms
+    ports:
+      - ${BILLETERA_DIGITAL_MS_PORT}:3000
+    environment:
+      - PORT=${BILLETERA_DIGITAL_MS_PORT}
+      - NATS_SERVERS=nats://nats-server:4222
+      - MONGODB_URI=mongodb://mongo-server/billetera-digital-db
+    networks:
+      - billetera_network
+    depends_on:
+      - nats-server
+      - mongo-server
+
+  billetera-digital-front:
+    container_name: billetera-digital-front
+    build: 
+      context: ./billetera-digital-front
+      args:
+        VITE_API_URL: http://billetera-digital-api:${BILLETERA_DIGITAL_API_PORT}/api
+    ports:
+      - ${BILLETERA_DIGITAL_FRONT_PORT}:80
+    depends_on:
+      - billetera-digital-api
+    networks:
+      - billetera_network
+  
   mongo-server:
     image: mongo:latest
     container_name: mongo-server
@@ -10,7 +52,7 @@ services:
     volumes:
       - mongodb_data:/data/db
     networks:
-      - mongodb_network
+      - billetera_network
 
   mongo-client:
     image: mongo-express:latest
@@ -24,7 +66,7 @@ services:
     ports:
       - "8081:8081"
     networks:
-      - mongodb_network
+      - billetera_network
 
   nats-server:
     image: nats:alpine3.21
@@ -36,9 +78,11 @@ services:
     volumes:
       - ./nats.conf:/etc/nats/nats.conf
     command: ["-c", "/etc/nats/nats.conf"]
+    networks:
+      - billetera_network
 
 volumes:
   mongodb_data:
 
 networks:
-  mongodb_network:
+  billetera_network:
