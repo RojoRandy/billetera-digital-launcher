@@ -71,6 +71,18 @@ Los proyectos se pueden compilar y ejecutar usando docker usando el comando sigu
 docker compose up -d
 ```
 
+Una vez que se compile todo el proyecto podras acceder a la interfaz mediante el enlace de la aplicación
+```
+http://localhost:8085/
+```
+
+#### Tipo de dato esperado para campos de cliente
+
+- Documento: string (UUID: df9cf233-12f0-461a-90c3-20a105afc939) 
+- Nombres: string
+- Email: string (correo electrónico válido)
+- Celular: string (10 caracteres)
+
 
 ## Importante
 Si se trabaja en el repositorio que tiene los sub-módulos, **primero actualizar y hacer push** en el sub-módulo y **después** en el repositorio principal. 
