@@ -1,7 +1,7 @@
 
 ## Billetera Digital
 
-Este repositorio contiene unicamente refencias de los repositorios en forma de submodulos de git para agilizar la descarga de los repositorios correspondientes al proyecto de Billetera Digital.
+Este repositorio contiene unicamente refencias de los repositorios en forma de sub-módulos de git para agilizar la descarga de los repositorios correspondientes al proyecto de Billetera Digital.
 
 ## Tabla de Contenido
 
@@ -59,6 +59,9 @@ git clone https://github.com/RojoRandy/billetera-digital-launcher.git
 ```
 git submodule update --init --recursive
 ```
+
+3. Crear un archivo .env basado en el env.example
+
 
 ### Correr Proyecto
 
