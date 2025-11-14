@@ -98,6 +98,13 @@ http://localhost:8085/
 - Celular: string (10 caracteres)
 
 
+### Colección Postman
+
+Este repositorio cuenta con archivos necesarios para importar los endpoints a Postman para hacer pruebas más rápidas, asi como las variables de entorno:
+
+1. Billetera Digital - (Nest + Hexagonal + DDD).postman_collection.json
+2. Billetera Digital.postman_environment.json
+
 ## Importante
 Si se trabaja en el repositorio que tiene los sub-módulos, **primero actualizar y hacer push** en el sub-módulo y **después** en el repositorio principal. 
 

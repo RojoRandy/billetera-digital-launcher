@@ -34,6 +34,29 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Consultar Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/clientes?documento=da91ed58-7810-4911-9889-1df00d480ebd",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"clientes"
+							],
+							"query": [
+								{
+									"key": "documento",
+									"value": "da91ed58-7810-4911-9889-1df00d480ebd"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -98,32 +121,62 @@
 			]
 		},
 		{
-			"name": "Consultar Saldo",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/billeteras/consultar-saldo?documento=da91ed58-7810-4911-9889-1df00d480ebd&celular=1231231231",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"billeteras",
-						"consultar-saldo"
-					],
-					"query": [
-						{
-							"key": "documento",
-							"value": "da91ed58-7810-4911-9889-1df00d480ebd"
+			"name": "Compras",
+			"item": [
+				{
+					"name": "Registrar compra",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"documento\": \"da91ed58-7810-4911-9889-1df00d480ebd\",\n    \"total\": 1020\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
-						{
-							"key": "celular",
-							"value": "1231231231"
+						"url": {
+							"raw": "{{URL}}/compras",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"compras"
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "Confirmar Compra",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idSesion\": \"35248bcc-0a57-4885-8076-b7c212bc2ace\",\n    \"token\": \"280878\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/compras/confirmar",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"compras",
+								"confirmar"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
