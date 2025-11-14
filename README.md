@@ -62,6 +62,20 @@ git submodule update --init --recursive
 
 3. Crear un archivo .env basado en el env.example
 
+Variables de entorno:
+
+- BILLETERA_DIGITAL_API_PORT: Puerto en el que se ejecutará la API del proyecto (3000 default) 
+- BILLETERA_DIGITAL_MS_PORT: Puerto en el que se ejecutará el microservicio del proyecto (3010 default)
+- BILLETERA_DIGITAL_FRONT_PORT: Puerto en el que se ejecutará la aplicación frontend (8085 default), si se cambia hay que ajustar el puerto en el enlace de la aplicación (http://localhost:8085/)
+- SMTP_HOST: Servidor de SMTP por el cual se envian los correos, por default se utiliza el servidor de google "smtp.gmail.com"
+- SMTP_PORT: Puerto del Servidor SMTP 587 (TLS)
+- SMTP_EMAIL: Cuenta desde la cual salen los correos "your_email@gmail.com"
+- SMTP_PASSWORD: Contraseña de aplicación de la cuenta "app pass 123 123", 
+
+La contraseña del servidor SMTP se debe generar desde la cuenta de google como Contraseña de Aplicaciones (se debe tener activado el sistema de autenticación en dos pasos)
+
+NOTA: Solo se han hecho pruebas desde este servidor y puerto de SMTP, no se garantiza el funcionamiento para otros servidores y puertos SSL.
+
 
 ### Correr Proyecto
 
